@@ -1,0 +1,5 @@
+----------------------------Log de Sistema----------------------------
+Abaixo é mostrado o Nome e o E-mail do Jogador.
+ 
+Nome: Demetrio
+Email: webber

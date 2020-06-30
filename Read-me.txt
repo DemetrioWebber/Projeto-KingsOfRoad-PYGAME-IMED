@@ -11,7 +11,7 @@ dos carros de polícia fazendo com que um contador de desvios aumente, calculand
 se o jogo tiver dois jogadores qual deles foi o melhor piloto de fuga.
 
 Quanto mais rápido você for, mais rápido o contador de desvios aumentará, e no fim é
-armazenada a quantidade de desvios e o tempo que o jogador demorou para executá-los.
+armazenado o nome do jogador e seu email.
 
 Quer se desafiar? Duvido conseguir mais de 50 desvios... Boa sorte!!!
 

@@ -2,6 +2,11 @@ import pygame
 import time
 import random
 import assets
+from savegame import funcaoArmazenamento
+
+nome = input("Digite seu nome: ")
+email = input("Digite seu E-mail: ")
+funcaoArmazenamento(nome, email)
 
 pygame.init()
 
@@ -98,6 +103,7 @@ def gameloop():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
+                funcaoArmazenamento(nome, email, desvios)
                 quit()
 
     #-----------Mapeamento de teclas---------------
