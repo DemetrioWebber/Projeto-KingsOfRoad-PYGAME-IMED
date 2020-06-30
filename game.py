@@ -60,7 +60,8 @@ def escreveplacar(contador):
     gamedisplay.blit(text, (20,30))
 
 def morreu():
-    pygame.mixer.Sound.play(freio)
+    freio.play()
+    freio.set_volume(0.8)
     messageDisplay("Perdeu Playboy")
 #----- loop do jogo ------
 
@@ -93,6 +94,9 @@ def gameloop():
                 movimentoX = movimentoX + 1
             elif event.key == pygame.K_w:
                 fundo_posicaoY = fundo_posicaoY + 5
+                motoracelerando.play()
+                motoracelerando.set_volume(0.4)
+                motormantendo.stop()
                 policia_velocidade = policia_velocidade + 4
             elif event.key == pygame.K_s:
                 movimentoY = movimentoY + 1
@@ -102,7 +106,9 @@ def gameloop():
             if event.key == pygame.K_a or pygame.K_d or pygame.K_w or pygame.K_s:
                 movimentoX = 0
                 movimentoY = 0
-                pygame.mixer.Sound.play(motormantendo)
+                motormantendo.play()
+                motormantendo.set_volume(0.1)
+                motoracelerando.stop()
 
         if carro_posicaoY > tela_altura - carro_altura:
             carro_posicaoY = tela_altura - carro_altura
