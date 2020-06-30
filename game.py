@@ -16,6 +16,8 @@ motormantendo = pygame.mixer.Sound("assets/mantendo.wav")
 motoracelerando = pygame.mixer.Sound("assets/acelerando.wav")
 freio = pygame.mixer.Sound("assets/freio.wav")
 turbo = pygame.mixer.Sound("assets/turbo.wav")
+estrelaimg = pygame.image.load("assets/estrela.png")
+estrela = pygame.transform.scale(estrelaimg, (50,50))
 
 clock = pygame.time.Clock()
 #RGB
@@ -54,6 +56,14 @@ def messageDisplay(text):
     pygame.display.update()
     time.sleep(3)
     gameloop()
+
+def nivelprocurado(text):
+    largeText = pygame.font.Font("freesansbold.ttf", 30)
+    TextSurf, TextRect = text_objects(text, largeText)
+    TextRect.center = ((400, 50))
+    gamedisplay.blit(TextSurf, TextRect)
+    pygame.display.update()
+    
 
 def escreveplacar(contador):
     font = pygame.font.SysFont("freesansbold.ttf", 50)
@@ -130,6 +140,9 @@ def gameloop():
 
         carro_posicaoX = carro_posicaoX + movimentoX
         carro_posicaoY = carro_posicaoY + movimentoY
+
+
+
     #------------------Fundo animado-------------------
 
         rel_fundoY = fundo_posicaoY % fundo.get_rect().width
@@ -149,17 +162,21 @@ def gameloop():
             desvios = desvios + 1
         if desvios < 10:
             policia_velocidade = 5
+            gamedisplay.blit(estrela, (550, 20))
         elif desvios < 20:
             policia_velocidade = 10
+            gamedisplay.blit(estrela, (550, 20)) and gamedisplay.blit(estrela, (600, 20))
         elif desvios < 30:
             policia_velocidade = 15
+            gamedisplay.blit(estrela, (550, 20)) and gamedisplay.blit(estrela, (600, 20)) and gamedisplay.blit(estrela, (650, 20))
         elif desvios >= 30:
             policia_velocidade = 20
-
+            gamedisplay.blit(estrela, (550, 20)) and gamedisplay.blit(estrela, (600, 20)) and gamedisplay.blit(estrela, (650, 20)) and gamedisplay.blit(estrela, (700, 20))
+#------------------Contadores--------------------
         escreveplacar(desvios)
 
         mostrapolicia(policia_posicaoX,policia_posicaoY)
-
+        nivelprocurado("Nivel de procurado: ")
 #---------------------Colisao------------------------
         if carro_posicaoY + 10 < policia_posicaoY + policia_altura:
             if carro_posicaoX < policia_posicaoX and carro_posicaoX + carro_largura > policia_posicaoX or policia_posicaoX + policia_largura > carro_posicaoX and policia_posicaoX + policia_largura < carro_posicaoX + carro_largura:
