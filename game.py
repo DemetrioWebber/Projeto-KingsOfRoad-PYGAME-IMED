@@ -15,6 +15,7 @@ pygame.display.set_icon(icon)
 motormantendo = pygame.mixer.Sound("assets/mantendo.wav")
 motoracelerando = pygame.mixer.Sound("assets/acelerando.wav")
 freio = pygame.mixer.Sound("assets/freio.wav")
+turbo = pygame.mixer.Sound("assets/turbo.wav")
 
 clock = pygame.time.Clock()
 #RGB
@@ -48,7 +49,7 @@ def text_objects(text,font):
 def messageDisplay(text):
     largeText = pygame.font.Font("freesansbold.ttf", 100)
     TextSurf, TextRect = text_objects(text, largeText)
-    TextRect.center = ((tela_largura/2), (tela_altura/2))
+    TextRect.center = ((tela_largura/2, tela_altura/2))
     gamedisplay.blit(TextSurf, TextRect)
     pygame.display.update()
     time.sleep(3)
@@ -60,8 +61,11 @@ def escreveplacar(contador):
     gamedisplay.blit(text, (20,30))
 
 def morreu():
-    freio.play()
-    freio.set_volume(0.8)
+    pygame.mixer.Sound.play(freio)
+    pygame.mixer.music.stop()
+    motormantendo.stop()
+    motoracelerando.stop()
+    turbo.stop()
     messageDisplay("Perdeu Playboy")
 #----- loop do jogo ------
 
@@ -109,6 +113,9 @@ def gameloop():
                 motormantendo.play()
                 motormantendo.set_volume(0.1)
                 motoracelerando.stop()
+                if event.key == pygame.K_w:
+                    turbo.play()
+                    turbo.set_volume(0.3)
 
         if carro_posicaoY > tela_altura - carro_altura:
             carro_posicaoY = tela_altura - carro_altura
@@ -157,6 +164,7 @@ def gameloop():
         if carro_posicaoY + 10 < policia_posicaoY + policia_altura:
             if carro_posicaoX < policia_posicaoX and carro_posicaoX + carro_largura > policia_posicaoX or policia_posicaoX + policia_largura > carro_posicaoX and policia_posicaoX + policia_largura < carro_posicaoX + carro_largura:
                 morreu()
+                pygame.mixer.Sound.play(freio)
 
     #---------------------Update de tela----------------
         pygame.display.update()
