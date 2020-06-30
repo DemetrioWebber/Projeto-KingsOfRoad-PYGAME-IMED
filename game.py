@@ -2,10 +2,13 @@ import pygame
 import time
 import random
 import assets
+import os
 from savegame import funcaoArmazenamento
 
+os.system("cls")
 nome = input("Digite seu nome: ")
 email = input("Digite seu E-mail: ")
+
 funcaoArmazenamento(nome, email)
 
 pygame.init()
@@ -42,10 +45,9 @@ fundo = pygame.image.load("assets/fundo.png").convert()
 
 
 #--------------funções globais--------------
-
 def mostrarCarro(x,y):
     gamedisplay.blit(carro, (x,y))
-
+    
 def mostrapolicia(x,y):
     gamedisplay.blit(policia, (x,y))
 
