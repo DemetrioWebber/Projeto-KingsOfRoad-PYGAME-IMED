@@ -4,7 +4,8 @@ Nome: Demétrio Webber Barreto dos Santos
 
 E-mail: demetriowebber@gmail.com
 
-O jogo foi criado para trabalho final no curso de Ciência da Computação na (IMED)
+O jogo foi criado para trabalho final da disciplina introdução a programação,
+no curso de Ciência da Computação na (IMED)
 
 O jogo é simples. A única coisa que o jogador tem que fazer dentro do game é desviar
 dos carros de polícia fazendo com que um contador de desvios aumente, calculando assim,
