@@ -58,9 +58,10 @@ def text_objects(text,font):
 def messageDisplay(text):
     largeText = pygame.font.Font("freesansbold.ttf", 100)
     TextSurf, TextRect = text_objects(text, largeText)
-    TextRect.center = ((tela_largura/2, tela_altura/2))
+    TextRect.center = (tela_largura/2, tela_altura/2)
     gamedisplay.blit(TextSurf, TextRect)
     pygame.display.update()
+    freio.play()
     time.sleep(3)
     gameloop()
 
@@ -105,7 +106,6 @@ def gameloop():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                funcaoArmazenamento(nome, email, desvios)
                 quit()
 
     #-----------Mapeamento de teclas---------------

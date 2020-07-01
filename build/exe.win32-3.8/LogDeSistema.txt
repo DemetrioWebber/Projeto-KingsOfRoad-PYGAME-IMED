@@ -1,0 +1,12 @@
+-----------------------------Log de Sistema------------------------------
+Abaixo consta o nome e o email do jogador.
+
+
+Nome: demetrio
+Email: demetriowebber@gmail.com
+Nome: Demetrio
+Email: demetriowebber@gmail.com
+Nome: Demétrio Webber
+Email: demetriowebber@gmail.com
+Nome: Demetrio
+Email: demetriowebber@gmail.com
